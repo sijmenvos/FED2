@@ -33,3 +33,4 @@ FED2
 - Place external scripts at the bottom of the page
 - Minify all javascripts for production
 - Always use curly braces on if statements
+- Only use console logs for debugging
