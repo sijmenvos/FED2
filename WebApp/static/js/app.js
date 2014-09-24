@@ -11,7 +11,11 @@ var app = app || {};
 	app.router = {
 		init: function(){
 			routie('*', function(route){
-				app.sections.toggle(route);
+				if(route == ''){
+					app.sections.toggle('movies');
+				} else {
+					app.sections.toggle(route);
+				}
 			});
 		}
 	};
@@ -36,7 +40,15 @@ var app = app || {};
 			Transparency.render(document.getElementById('about'), app.content.about, app.directives);
 		},
 		movies: function(){
-			Transparency.render(document.getElementById('renderMovies'), app.content.movies, app.directives);
+			if(localStorage.getItem('movies')){
+				Transparency.render(document.getElementById('renderMovies'), JSON.parse(localStorage.getItem('movies')), app.directives);
+			}
+			else {
+				app.content.moviesXHR.trigger('GET', 'http://dennistel.nl/movies', function(res){
+						localStorage.setItem('movies', res);
+						Transparency.render(document.getElementById('renderMovies'), JSON.parse(res), app.directives);
+					});
+			}
 		}
 	};
 

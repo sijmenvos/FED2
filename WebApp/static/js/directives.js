@@ -5,7 +5,7 @@ var app = app || {};
 	app.directives = {
 	  	coverImage: {
 	    	src: function(params) {
-	      		return "static/images/" + this.cover;
+	      		return this.cover;
 	    	}
 	  	},
 	  	paragraphs: {
