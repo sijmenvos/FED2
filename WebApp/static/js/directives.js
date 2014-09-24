@@ -9,12 +9,8 @@ var app = app || {};
 	    	}
 	  	},
 	  	paragraphs: {
-	  		text: function(params){
-	  			this.description.forEach(function(paragraph){
-	  				var node = document.createElement('p');
-		  			node.innerHTML = paragraph;
-		  			params.element.appendChild(node);
-	  			});
+	  		html: function(params){
+	  			return this.description;
 		  	}
 	  	}
 	};
