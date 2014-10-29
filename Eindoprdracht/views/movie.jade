@@ -1,0 +1,14 @@
+.movie.detail
+  img(ng-src="{{movie.posters.original}}")
+  ul
+    section
+      h1 {{movie.title}} ({{movie.year}})
+      p(ng-bind="movie.synopsis")
+
+h1(ng-show="related.length > 0") Related movies
+.movies.related
+  .movie(ng-repeat="movie in related", ui-sref="movie({id:movie.id})")
+      img(ng-src="{{movie.posters.original}}")
+      ul
+        h1 {{movie.title}}
+        span(ng-bind="movie.year").year

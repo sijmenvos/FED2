@@ -1,0 +1,13 @@
+h1 Upcoming movies
+select(ng-options="option.text for option in orderByList", ng-model="orderBy")
+  option(value="") Sort by
+select(ng-model="reverse")
+  option(value="false") Asc
+  option(value="true") Desc
+.movies.upcoming
+    .movie.animated.bounceInUp(ng-repeat="movie in movies | orderBy:orderBy.expression:reverse == 'true' ? true : false", ui-sref="movie({id:movie.id})")
+      h1 {{movie.title}}
+        span.pull-right ({{movie.release_dates.theater}})
+      img(ng-src="{{movie.posters.original}}")
+      section.meta
+        p {{movie.synopsis}}

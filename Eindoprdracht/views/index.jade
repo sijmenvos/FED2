@@ -1,0 +1,11 @@
+extends layout
+
+block navigation
+  nav
+    ul
+      li(ui-sref="upcoming") Home
+      li(ui-sref="search") Search
+
+block content
+  .container(ui-view='')
+    input(ng-model="zoeken", ng-change="search(zoeken)")

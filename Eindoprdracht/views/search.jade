@@ -1,0 +1,11 @@
+h1 Search for a movie
+  input(type="text", ng-change="search(query)", ng-model="query")
+  .loader
+    img(ng-if="loading", ng-src="{{loading}}")
+  p.info(ng-show="movies.length == 0 && !loading") No results. Please alter your search query.
+  .searchMovies(ng-if="!loading")
+    .movie.animated.fadeIn(ng-repeat="movie in movies", ui-sref="movie({id:movie.id})")
+      img(ng-src="{{movie.posters.original}}")
+      ul
+        h1 {{movie.title}}
+        span(ng-bind="movie.year").year
