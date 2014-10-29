@@ -34,3 +34,7 @@ FED2
 - Minify all javascripts for production
 - Always use curly braces on if statements
 - Only use console logs for debugging
+
+###Production
+- Concatinate all scripts into one file and minify
+- Concatinate all css into one file and minify
