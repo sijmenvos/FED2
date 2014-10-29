@@ -38,3 +38,4 @@ FED2
 ###Production
 - Concatinate all scripts into one file and minify
 - Concatinate all css into one file and minify
+- Remove all console logging
